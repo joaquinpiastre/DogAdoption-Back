@@ -1,0 +1,35 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dogadoption
+    username: postgres
+    password: 125250500
+    driver-class-name: org.postgresql.Driver
+    #driver postresql
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 3
+      minimum-idle: 2
+      idle-timeout: 120000
+      max-lifetime: 600000
+      pool-name: auth
+      # test connection postresql
+      connection-test-query: SELECT 1
+      initialization-fail-timeout: -1
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+        jwt: DEBUG
+app:
+  jwt:
+    secret: F6i+C1KmbFA6xuLs/8uAC5+vcbo57EKnkx0EFDhp1ac=
+    expiration: 86400000
+
+management.endpoints.web.exposure.include: '*'
+management.endpoint.health.show-details: ALWAYS
+spring.main.allow-bean-definition-overriding: true
